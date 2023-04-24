@@ -122,6 +122,14 @@ Config::define('DISALLOW_FILE_MODS', true);
 Config::define('WP_POST_REVISIONS', env('WP_POST_REVISIONS') ?? true);
 
 /**
+ * Plugin Settings
+ */
+if (env('PUBLIC_S3_BUCKET_NAME')) {
+    Config::define('S3_UPLOADS_BUCKET', env('PUBLIC_S3_BUCKET_NAME'));
+    Config::define('S3_UPLOADS_REGION', env('AWS_REGION'));
+    Config::define('S3_UPLOADS_USE_INSTANCE_PROFILE', true );
+}
+/**
  * Debugging Settings
  */
 Config::define('WP_DEBUG_DISPLAY', false);
